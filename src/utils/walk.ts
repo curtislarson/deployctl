@@ -1,4 +1,4 @@
-import { join } from "../../deps.ts";
+import { globToRegExp, join } from "../../deps.ts";
 import { ManifestEntry } from "./api_types.ts";
 
 /** Calculate git object hash, like `git hash-object` does. */
@@ -21,11 +21,11 @@ function include(
   exclude?: string[],
 ): boolean {
   if (
-    include && !include.some((pattern): boolean => path.startsWith(pattern))
+    include && !include.some((pattern) => path.match(globToRegExp(pattern)))
   ) {
     return false;
   }
-  if (exclude && exclude.some((pattern): boolean => path.startsWith(pattern))) {
+  if (exclude && exclude.some((pattern) => path.match(globToRegExp(pattern)))) {
     return false;
   }
   return true;
