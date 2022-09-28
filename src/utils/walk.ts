@@ -15,7 +15,7 @@ export async function calculateGitSha1(bytes: Uint8Array) {
   return hashHex;
 }
 
-function include(
+export function include(
   path: string,
   include?: string[],
   exclude?: string[],

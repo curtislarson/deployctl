@@ -97,8 +97,8 @@ export default async function (rawArgs: Record<string, any>): Promise<void> {
     prod: args.prod,
     token,
     project: args.project,
-    include: args.include?.map((pattern) => normalize(pattern)),
-    exclude: args.exclude?.map((pattern) => normalize(pattern)),
+    include: args.include,
+    exclude: args.exclude,
     dryRun: args.dryRun,
   };
 
